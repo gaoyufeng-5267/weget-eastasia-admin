@@ -89,7 +89,7 @@ export default {
             name: "adminTop",
           });
 
-          this.$http.post('/login',{
+          this.$axios.post('/login',{
              userInfo: {
               userName: "admin",
               userPwd: "88888",
