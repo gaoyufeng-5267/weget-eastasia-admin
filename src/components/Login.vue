@@ -54,7 +54,7 @@
         <a-form-item>
           <a class="login-form-forgot" href=""> パスワードを忘れた場合 </a>
           <a-button type="primary" html-type="submit" class="login-form-button">
-            {{ $t("message.login") }}
+            {{ $t("jpMsg.login") }}
           </a-button>
         </a-form-item>
       </a-form>
@@ -76,6 +76,9 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
+      console.log('********************')
+      console.log(this.$store.getters.isLogin)
+      console.log('********************')
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log("Received values of form: ", values);
@@ -89,7 +92,7 @@ export default {
             name: "adminTop",
           });
 
-          this.$http.post('/login',{
+          this.$axios.post('/login',{
              userInfo: {
               userName: "admin",
               userPwd: "88888",
