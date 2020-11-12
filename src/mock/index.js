@@ -7,7 +7,7 @@ const adminInfo = [
     userPwd: '1234qwer',
   }
 ]
-
+// ログイン
 Mock.mock('/login', 'post', function (options) {
   let user = JSON.parse(options.body).userInfo
   let flg = false
@@ -22,3 +22,5 @@ Mock.mock('/login', 'post', function (options) {
     return null
   }
 });
+// パスワード忘れた
+Mock.mock('/mailForget', 'post', "200")
