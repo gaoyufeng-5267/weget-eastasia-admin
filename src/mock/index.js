@@ -3,8 +3,8 @@ const Mock = require('mockjs');
 
 const adminInfo = [
   {
-    userName: '4399@qq.com',
-    userPwd: '4399@qq.com',
+    mail: '4399@qq.com',
+    userPwd: '1234qwer',
   }
 ]
 
@@ -12,7 +12,7 @@ Mock.mock('/login', 'post', function (options) {
   let user = JSON.parse(options.body).userInfo
   let flg = false
   adminInfo.forEach(function (item) {
-    if (item.userName === user.userName && item.userPwd === user.userPwd) {
+    if (item.mail === user.mail && item.userPwd === user.userPwd) {
       flg = true
     }
   })

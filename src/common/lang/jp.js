@@ -13,7 +13,12 @@ module.exports = {
         emailError: 'メールアドレスのフォーマットが正しくありません!',
         emailRequired: 'メールアドレスを入力してください!',
         pwdRequired: 'パスワードを入力してください!',
-        loginError: 'メールまたはパスワードが間違っています'
+        loginError: 'メールまたはパスワードが間違っています',
+        pwdConfirm: '8から16まで英数字の組み合わせのパスワードを入力してください！'
+    },
+    infoMessages: {
+        // ログイン画面
+        emailSend: 'メールが送信された、ご確認ください!',
     },
 
 }

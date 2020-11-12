@@ -4,6 +4,7 @@
       <a-col :span="6" class="login-col">
         <a-divider> {{$t('labelMesseges.titleMsg')}} </a-divider>
         <a-alert  type="error" show-icon :message='$t("errorMessages.loginError")' v-if='errorVisable' closable :after-close="onErrorVisable"/>
+        <a-alert :message='mailDiffer? $t("errorMessages.emailRequired") : $t("infoMessages.emailSend")' closable type="info" show-icon v-if='mailRequired' :after-close="onMailRequired"/>
         <a-form
           id="components-form-demo-normal-login"
           :form="form"
@@ -14,7 +15,7 @@
           <a-form-item>
             <a-input
               v-decorator="[
-                'userName',
+                'mail',
                 {
                   rules: [
                     {
@@ -47,6 +48,10 @@
                       required: true,
                       message: $t('errorMessages.pwdRequired'),
                     },
+                    {
+                      pattern: new RegExp(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/),
+                      message: $t('errorMessages.pwdConfirm')
+                    },
                   ],
                 },
               ]"
@@ -61,7 +66,7 @@
             </a-input>
           </a-form-item>
           <a-form-item>
-            <a class="login-form-forgot" href=""> {{ $t("labelMesseges.passwordForget") }} </a>
+            <a class="login-form-forgot"  @click="mailForget"> {{ $t("labelMesseges.passwordForget") }} </a>
             <a-button
               type="primary"
               html-type="submit"
@@ -80,8 +85,10 @@
 export default {
   data() {
     return {
+      mailDiffer: '',
+      mailRequired: false,
       errorVisable: false,
-      userName: "",
+      mail: "",
       password: "",
       form: this.$form.createForm(this, { name: "normal_login" }),
     };
@@ -95,7 +102,7 @@ export default {
           this.$axios
             .post("/login", {
               userInfo: {
-                userName: values.userName,
+                mail: values.mail,
                 userPwd: values.password,
               },
             })
@@ -103,7 +110,7 @@ export default {
               if (response.data !== null) {
                 this.$store.commit("setUserInfo", {
                   userInfo: {
-                    userName: values.userName,
+                    mail: values.mail,
                     userPwd: values.password,
                   },
                 });
@@ -112,18 +119,34 @@ export default {
                 });
               } else {
                 this.errorVisable = true
-                // alert("请检查密码和账户");
               }
             });
         }
       });
     },
-
+    // メールチェック
     onErrorVisable(){
       this.errorVisable = false
     },
-    // パスワードをリセット
-    passwordReset() {},
+    // メール必須チェック
+    onMailRequired(){
+      this.mailRequired = false
+    },
+    // メール忘れた場合
+    mailForget(){
+      this.mailRequired = true;
+      let errorInfo = this.form.getFieldError('mail');
+      let mail = this.form.getFieldValue('mail');
+      if(!errorInfo) {
+          if (!mail){
+          this.mailDiffer = true;
+        } else {
+          this.mailDiffer = false;
+        }
+      } else {
+        this.mailRequired = false;
+      }
+    },
   },
 };
 </script>

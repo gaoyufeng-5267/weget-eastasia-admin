@@ -41,23 +41,23 @@ const router = new VueRouter({
                     default: () => import('../components/pages/TopPage.vue')
                 }
             },{
-                name: 'productsList',
-                path: './productsList',
+                name: 'SalesList',
+                path: './SalesList',
                 components: {
-                    default: () => import('../components/pages/product/manage/ProductsList.vue')
+                    default: () => import('../components/pages/sales/status/SalesList.vue')
                 }
-            },{
-                name: 'productAdd',
-                path: './productAdd',
-                components: {
-                    default: () => import('../components/pages/product/manage/ProductAdd.vue')
-                }
-            },{
-                name: 'productsAdd',
-                path: './productsAdd',
-                components: {
-                    default: () => import('../components/pages/product/manage/ProductsAdd.vue')
-                }
+            // },{
+            //     name: 'productAdd',
+            //     path: './productAdd',
+            //     components: {
+            //         default: () => import('../components/pages/product/manage/ProductAdd.vue')
+            //     }
+            // },{
+            //     name: 'productsAdd',
+            //     path: './productsAdd',
+            //     components: {
+            //         default: () => import('../components/pages/product/manage/ProductsAdd.vue')
+            //     }
             }]
         },
 
