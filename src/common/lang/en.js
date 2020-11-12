@@ -1,5 +1,5 @@
 module.exports = {
-    enMsg: {
+    messeges: {
         login: 'login',
     }
 }

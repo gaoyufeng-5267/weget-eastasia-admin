@@ -1,0 +1,25 @@
+/* ログイン */
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+}
+
+#components-form-demo-normal-login .login-form-forgot {
+    float: right;
+}
+
+#components-form-demo-normal-login .login-form-button {
+    width: 100%;
+}
+
+.login-col{
+    margin: 0 auto;
+}
+
+.login-icon-color{
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.login-layout{
+    margin-top :170px;
+}
+

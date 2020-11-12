@@ -1,5 +1,5 @@
 module.exports = {
-    cnMsg: {
+    messeges: {
         login: '登录',
     }
 }
