@@ -19,7 +19,7 @@ const router = new VueRouter({
         //component:路由所映射的组件对象
         {
             name: 'login',
-            path: '/login',
+            path: '/',
             // 异步引入组件，确保匹配了路由才加载组件，否则不利于优化
             component: Login,
             meta: {

@@ -1,11 +1,25 @@
 module.exports = {
     labelMesseges: {
+        // 単位
+        month: '月',
+        money: '￥',
+
         // ログイン画面
         login: 'ログイン',
         password: 'パスワード',
         email: 'メールアドレス',
         passwordForget: 'パスワードを忘れた場合',
-        titleMsg: 'WeGet－東亜管理システム'
+        titleMsg: 'WeGet－東亜管理システム',
+
+        // トップページ
+        memberCountHeader: '会員状況',
+        memberCount: '会員数',
+        quitMemberCountByCurrentMonth: '当月退会数',
+        addMemberCountByCurrentMonth: '当月入会数',
+        shopStatusHeader: '店舗状況',
+        shopCount: '店舗数',
+        soldTotalAmount: '売上金額',
+        soldTotalCount: '売上件数'
 
     },
     errorMessages: {

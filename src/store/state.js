@@ -1,5 +1,5 @@
 export default{
     userInfo:"",
     userPwd:"",
-    isLogin:false
+    isLogin:true
 }

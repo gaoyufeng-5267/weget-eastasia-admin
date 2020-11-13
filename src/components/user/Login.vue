@@ -86,8 +86,8 @@ export default {
   data() {
     return {
       mailDiffer: '',
-      mailRequired: false,
-      errorVisable: false,
+      mailRequired: '',
+      errorVisable: '',
       mail: "",
       password: "",
       form: this.$form.createForm(this, { name: "normal_login" }),
@@ -124,7 +124,7 @@ export default {
         }
       });
     },
-    // メールチェック
+    // メールまたはパスワード違いチェック
     onErrorVisable(){
       this.errorVisable = false
     },
@@ -142,6 +142,11 @@ export default {
           this.mailDiffer = true;
         } else {
           this.mailDiffer = false;
+          this.$axios.post('/mailForget').then((response) => {
+            if (response.data === '200'){
+              console.log('メール忘れた')
+            }
+          })
         }
       } else {
         this.mailRequired = false;

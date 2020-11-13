@@ -18,7 +18,7 @@ Vue.use(Vuex)
 Vue.use(VueI18n)
 Vue.use(http);
 require('./mock/index.js');
-
+console.log("main")
 //言語選択
 const i18n = new VueI18n({
   locale: 'jp',
