@@ -86,8 +86,8 @@ export default {
   data() {
     return {
       mailDiffer: '',
-      mailRequired: false,
-      errorVisable: false,
+      mailRequired: '',
+      errorVisable: '',
       mail: "",
       password: "",
       form: this.$form.createForm(this, { name: "normal_login" }),
